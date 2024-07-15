@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-## create docker image build the docker image form docker file
-## dockerimage name is app-admin-frontend
-## docker build -t image-name path-to-Dockerfile
+### create docker image build the docker image form docker file
+### dockerimage name is app-admin-frontend
+### docker build -t image-name path-to-Dockerfile
 docker build -t app-admin-frontend .
