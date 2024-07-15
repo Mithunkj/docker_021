@@ -1,0 +1,43 @@
+version: "3"
+services:
+  app-admin-backend:
+    image: app-admin-backend
+    ports:
+      - 7001:7001
+    environment:
+      - ACCESS_TOKEN_KEY=accesstoken1
+      - REFRESH_TOKEN_KEY=refreshtoken1
+      - NODE_ENV=development
+      - MONGODBURL=mongodb://admin:password@mongodb:27017/Authentication?authSource=admin
+      - RAZORPAY_KEY_ID=rzp_test_dJF4RpowlltVVV
+      - RAZORPAY_KEY_SECRET=EhToHIa1qjeUCgkI7uPRQXD5
+    networks:
+      - sample-network
+  app-user-backend:
+    image: app-user-backend
+    ports:
+      - 7002:7002
+    environment:
+      - ACCESS_TOKEN_KEY=accesstoken2
+      - REFRESH_TOKEN_KEY=refreshtoken2
+      - NODE_ENV=development
+      - MONGODBURL=mongodb://admin:password@mongodb:27017/Authentication?authSource=admin
+      - RAZORPAY_KEY_ID=rzp_test_dJF4RpowlltVVV
+      - RAZORPAY_KEY_SECRET=EhToHIa1qjeUCgkI7uPRQXD5
+    networks:
+      - sample-network
+  app-admin-frontend:
+    image: app-admin-frontend
+    ports:
+      - 5001:5001
+    networks:
+      - sample-network
+  app-user-frontend:
+    image: app-user-frontend
+    ports:
+      - 5002:5002
+    networks:
+      - sample-network
+networks:
+  sample-network:
+    driver: bridge
