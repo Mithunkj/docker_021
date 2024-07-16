@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
+const dotenv = require("dotenv");
 const app = express();
+
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
@@ -13,8 +15,7 @@ app.get("/", (req, res) => {
 
 //get api 
 app.get("/admin", async (req, res) => {
-  const result = await axios.get("http://localhost:7002/user");
-  res.json({ title: "hello admin_backend", data: result.data });
+ res.send(`${process.env.ACCESS_TOKEN_KEY}`)
 });
 
 app.listen(process.env.PORT || 7001, () => {
