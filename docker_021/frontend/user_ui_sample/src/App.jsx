@@ -6,7 +6,7 @@ function App() {
     try {
       const res = await axios.get("http://localhost:7001/admin")
       console.log(res)
-      alert(res.data.data)
+      alert(res.data)
     } catch (error) {
       console.log(error)
     }
